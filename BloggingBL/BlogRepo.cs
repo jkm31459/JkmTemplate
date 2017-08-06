@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace BloggingBL
 {
-    class Program
+    public class BlogRepo : Repository<Blog>, IBlogRepository
     {
-        static void Main(string[] args)
+        public BlogRepo(BloggingContext context) : base(context)
         {
         }
+
     }
 }
