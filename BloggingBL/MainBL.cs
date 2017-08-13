@@ -22,7 +22,7 @@ namespace BloggingBL
             {
                 _unitOfWork.BlogRepo.Add(new Blog()
                 {
-                    Name = "Blog5"
+                    Name = "Blog6"
                 });
 
                 _unitOfWork.Complete();

@@ -13,15 +13,16 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddScoped<BloggingContext>();
-            serviceCollection.AddTransient<IBlogRepository, BlogRepo>();
-            serviceCollection.AddTransient<IUnitOfWork, UnitOfWork>();
+            var services = new ServiceCollection();
+            ConfigureServices(services);
 
-            serviceCollection.AddTransient<MainBL>();
-
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+            var serviceProvider = services.BuildServiceProvider();
             serviceProvider.GetService<MainBL>().Run();
+        }
+
+        private static void ConfigureServices(IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddBusinessServices();
         }
     }
 }
